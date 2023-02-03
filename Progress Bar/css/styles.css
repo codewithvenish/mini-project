@@ -1,0 +1,73 @@
+/* Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
+  :root{
+    --background:rgb(0, 123, 255);
+  }
+/* Global  */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Nunito', sans-serif;
+  }
+  /* Colors */
+  :root{
+    --background:rgb(60, 121, 254);
+    --background-dark:rgb(27, 65, 255);
+    --font-color:#e0e0e0;
+  }
+.progress{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:var(--background);
+    height:80px;
+    width:400px;
+    border-radius:50px;
+    box-shadow:0px 5px 10px rgba(0.0.0.0.5);
+    transition:all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor:pointer;
+    overflow: hidden;
+}
+.progress::before{
+    content:'';
+    position:absolute;
+    height:100%;
+    width:100%;
+    background:var(--background-dark);
+    left:-100%;
+    border-radius:50px;
+}
+.progress.active{
+    height:20px;
+    width:500px;
+}
+.progress.active::before{
+    animation: layer 7s ease-in-out forwards;
+}
+    @keyframes layer {
+        100%{
+            left:0%;
+        }
+    }
+
+.progress .prog-bar{
+    height:100%;
+    width: 100%;
+    gap:10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s ease;
+    transition-delay: 0.2s;
+}
+.progress.active .prog-bar{
+    transform:translateY(60px);
+}
+.prog-bar i,
+.prog-bar p{
+    color:var(--font-color);
+    font-size:35px;
+    font-weight:500;
+}
